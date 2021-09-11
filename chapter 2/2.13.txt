@@ -1,0 +1,15 @@
+int bis (int x, int y); // x | y
+int bic (int x, int y); // x & ~y
+
+/* compute x|y using only calls t functions bis and bic */
+int bool_or (int x, int y){
+    int result = bis(x, y);
+    return result;
+}
+
+/* compute x^y using only calls t functions bis and bic */
+int bool_xor (int x, int y){
+    // x ^ y = (x & ~y) | (~x & y)
+    int result = bis(bic(x, y), bic(y, x));
+    return result;
+}

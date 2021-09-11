@@ -1,0 +1,4 @@
+M is 31; x*M is computed as (x<<5)-x.
+
+N is 8; a bias value of 7 is added when y is negative, and the
+right shift is by 3.
