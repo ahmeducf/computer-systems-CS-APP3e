@@ -1,0 +1,8 @@
+A. We can see that lines 9–14 save local values a0–a5 into callee-saved registers
+   %rbx, %r15, %r14, %r13, %r12, and %rbp, respectively.
+
+B. Local values a6 and a7 are stored on the stack at offsets 0 and 8 relative to
+   the stack pointer (lines 16 and 18).
+
+C. After storing six local variables, the program has used up the supply of callee-
+   saved registers. It stores the remaining two local values on the stack.

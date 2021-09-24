@@ -1,0 +1,16 @@
+A. The suffix ‘l’ and the register identifiers indicate 32-bit operands, while the
+comparison is for a two’s-complement <. We can infer that data_t must be
+int.
+
+B. The suffix ‘w’ and the register identifiers indicate 16-bit operands, while the
+comparison is for a two’s-complement >=. We can infer that data_t must be
+short.
+
+C. The suffix ‘b’ and the register identifiers indicate 8-bit operands, while
+the comparison is for an unsigned <=. We can infer that data_t must be
+unsigned char.
+
+D. The suffix ‘q’ and the register identifiers indicate 64-bit operands, while
+the comparison is for !=, which is the same whether the arguments are
+signed, unsigned, or pointers. We can infer that data_t could be either long,
+unsigned long, or some form of pointer.

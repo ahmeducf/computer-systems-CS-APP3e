@@ -1,0 +1,15 @@
+A. Register %rbx holds the value of parameter x, so that it can be used to
+   compute the result expression.
+
+
+B. The assembly code was generated from the following C code:
+
+   long rfun(unsigned long x) {
+        if (x == 0)
+            return 0;
+
+        unsigned long nx = x>>2;
+        long rv = rfun(nx);
+
+        return x + rv;
+    }

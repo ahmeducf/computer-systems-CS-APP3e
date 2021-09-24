@@ -1,0 +1,11 @@
+void goto_cond(short a, short *p) {
+    if (a == 0)
+        goto done;
+    if (a >= *p)
+        goto done;
+    *p = a;
+done:
+    return;
+}
+
+B- To simulate the && operator

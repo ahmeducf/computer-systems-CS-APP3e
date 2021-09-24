@@ -1,0 +1,13 @@
+-Cannot use %ebx as address register
+
+-Mismatch between instruction suffix and register ID
+
+-Cannot have both source and destination be memory references
+
+-No register named %sl
+
+-Cannot have immediate as destination
+
+-Destination operand incorrect size
+
+-Mismatch between instruction suffix and register ID

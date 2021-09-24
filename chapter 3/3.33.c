@@ -1,0 +1,1 @@
+int procprobl(int a, short b, long *u, char *v);
