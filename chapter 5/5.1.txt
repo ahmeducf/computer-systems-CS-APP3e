@@ -1,0 +1,6 @@
+As the following commented code shows, the effect will be to set the value at
+xp to zero:
+
+*xp = *xp + *xp; /* 2x */
+*xp = *xp - *xp; /* 2x-2x = 0 */
+*xp = *xp - *xp; /* 0-0 = 0 */

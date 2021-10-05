@@ -1,0 +1,8 @@
+A. The function performs 2n multiplications and n additions.
+
+B. We can see that the performance-limiting computation here is the repeated
+    computation of the expression xpwr = x * xpwr. This requires a floating-
+    point multiplication (5 clock cycles), and the computation for one iteration
+    cannot begin until the one for the previous iteration has completed. The
+    updating of result only requires a floating-point addition (3 clock cycles)
+    between successive iterations.
