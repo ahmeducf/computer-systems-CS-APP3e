@@ -1,0 +1,7 @@
+A. For the unprotected code, we can see that lines 4 and 5 compute the positions
+    of v and buf to be at offsets 24 and 0 relative to %rsp. In the protected code,
+    the canary is stored at offset 40 (line 4), while v and buf are at offsets 8 and
+    16 (lines 7 and 8).
+
+B. In the protected code, local variable v is positioned closer to the top of the
+    stack than buf, and so an overrun of buf will not corrupt the value of v.

@@ -1,0 +1,3 @@
+We can see that the reference to matrix P is at byte offset 8 . (7i + j ), while
+the reference to matrix Q is at byte offset 8 . (5j + i). From this, we can determine
+that P has 7 columns, while Q has 5, giving M = 5 and N = 7.

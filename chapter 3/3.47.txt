@@ -1,0 +1,4 @@
+A. This corresponds to a range of around 213 addresses.
+
+B. A 128-byte nop sled would cover 27 addresses with each test, and so we would
+   only require around 26 = 64 attempts.
