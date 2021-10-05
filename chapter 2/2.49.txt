@@ -1,0 +1,4 @@
+A. The number has binary representation 1, followed by n zeros, followed by 1,
+   giving value (2^(n+1)) + 1.
+
+B. When n = 23, the value is (2^24) + 1 = 16,777,217.

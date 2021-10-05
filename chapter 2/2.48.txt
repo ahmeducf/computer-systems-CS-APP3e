@@ -1,0 +1,14 @@
+Hexadecimal 0x359141 is equivalent to binary [1101011001000101000001].
+Shifting this right 21 places gives [1.101011001000101000001 2 × 2^21].
+We form the fraction field by dropping the leading 1 and adding two zeros, giving
+[10101100100010100000100]
+The exponent is formed by adding bias 127 to 21, giving 148 (binary [10010100]).
+We combine this with a sign field of 0 to give a binary representation
+[01001010010101100100010100000100]
+We see that the matching bits in the two representations correspond to the low-
+order bits of the integer, up to the most significant bit equal to 1 matching the
+high-order 21 bits of the fraction:
+
+00000000001101011001000101000001
+           *********************
+  01001010010101100100010100000100

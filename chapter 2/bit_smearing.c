@@ -21,6 +21,12 @@ void show_bytes (byte_pointer start, size_t len) {
 int main() {
     IO();
     int x = 0x9;
+    // make all bits to the right of the most significnat 1 equal 1
+    x |= x >> 16;
+    x |= x >> 8;
+    x |= x >> 4;
+    x |= x >> 2;
+    x |= x >> 1;
     show_bytes(&x, sizeof(int));
     return 0;
 }
