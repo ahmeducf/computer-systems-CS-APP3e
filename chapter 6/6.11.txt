@@ -1,0 +1,12 @@
+A. With high-order bit indexing, each contiguous array chunk consists of 2t
+    blocks, where t is the number of tag bits. Thus, the first 2t contiguous blocks
+    of the array would map to set 0, the next 2t blocks would map to set 1, and
+    so on.
+
+B. For a direct-mapped cache where (S, E, B, m) = (512, 1, 32, 32), the cache
+    capacity is 512 32-byte blocks with t = 18 tag bits in each cache line. Thus, the
+    first 218 blocks in the array would map to set 0, the next 218 blocks to set 1.
+    Since our array consists of only (4,096 × 4)/32 = 512 blocks, all of the blocks
+    in the array map to set 0. Thus, the cache will hold at most 1 array block at
+    any point in time, even though the array is small enough to fit entirely in the
+    cache. Clearly, using high-order bit indexing makes poor use of the cache.

@@ -1,0 +1,11 @@
+A. Worst-case sequential writes (520 MB/s):
+    (109 × 128) × (1/520) × (1/(86,400 × 365)) ≈ 7 years
+
+B. Worst-case random writes (205 MB/s):
+    (109 × 128) × (1/205) × (1/(86,400 × 365)) ≈ 19 years
+
+C. Average case (50 GB/day):
+    (109 × 128) × (1/50,000) × (1/365) ≈ 6,912 years
+
+So even if the SSD operates continuously, it should last for at least 7 years, which
+is longer than the expected lifetime of most computers.

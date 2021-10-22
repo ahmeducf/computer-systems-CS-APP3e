@@ -1,0 +1,15 @@
+First we need to determine a few basic properties of the file and the disk.
+The file consists of 10,000 512-byte logical blocks. For the disk, Tavg seek = 6 ms,
+Tmax rotation = 4.61 ms, and Tavg rotation = 2.30 ms.
+
+A. Best case: In the optimal case, the blocks are mapped to contiguous sectors,
+    on the same cylinder, that can be read one after the other without moving
+    the head. Once the head is positioned over the first sector it takes two full
+    rotations (5,000 sectors per rotation) of the disk to read all 10,000 blocks.
+    So the total time to read the file is Tavg seek + Tavg rotation + 2 × Tmax rotation =
+    6 + 2.30 + 9.22 = 17.52 ms.
+
+B. Random case: In this case, where blocks are mapped randomly to sectors,
+    reading each of the 10,000 blocks requires Tavg seek + Tavg rotation ms, so the
+    total time to read the file is (Tavg seek + Tavg rotation ) × 10,000 = 83,000 ms
+    (83 seconds!).

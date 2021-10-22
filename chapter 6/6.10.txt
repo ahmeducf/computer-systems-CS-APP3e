@@ -1,0 +1,2 @@
+The padding eliminates the conflict misses. Thus, three-fourths of the references
+are hits.

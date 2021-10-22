@@ -1,0 +1,11 @@
+A. The linker chooses the strong symbol defined in module 1 over the weak
+    symbol defined in module 2 (rule 2):
+    (a) REF(main.1) → DEF(main.1)
+    (b) REF(main.2) → DEF(main.1)
+
+B. This is an error, because each module defines a strong symbol main (rule 1).
+
+C. The linker chooses the strong symbol defined in module 2 over the weak
+    symbol defined in module 1 (rule 2):
+    (a) REF(x.1) → DEF(x.2)
+    (b) REF(x.2) → DEF(x.2)

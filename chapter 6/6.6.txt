@@ -1,0 +1,6 @@
+In the 10-year period between 2005 and 2015, the unit price of rotating disks
+dropped by a factor of 166, which means the price is dropping by roughly a factor
+of 2 every 18 months or so. Assuming this trend continues, a petabyte of storage,
+which costs about $30,000 in 2015, will drop below $200 after about eight of these
+factor-of-2 reductions. Since these are occurring every 18 months, we might expect
+a petabyte of storage to be available for $200 around the year 2027.

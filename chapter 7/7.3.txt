@@ -1,0 +1,3 @@
+A. linux> gcc p.o libx.a
+B. linux> gcc p.o libx.a liby.a
+C. linux> gcc p.o libx.a liby.a libx.a
