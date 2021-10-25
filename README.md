@@ -2,8 +2,8 @@
 
 ### Overview
 
-This repo contains source code and my solution to **CMU 15-213: Introduction to
-Computer System** practice problems and [lab assignments](/CMU-15-213-Labs). I am using the `2015 Fall` version.  
+This repo contains source code and my solution to ***CMU 15-213: Introduction to
+Computer System*** practice problems and [lab assignments](/CMU-15-213-Labs). I am using the `2015 Fall` version.  
 - [Course website](http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/)  
 - [Course videos](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22)
 - [Book site for](http://csapp.cs.cmu.edu/3e/home.html)  `CSAPP: 3e`
