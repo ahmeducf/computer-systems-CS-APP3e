@@ -54,8 +54,6 @@ struct job_t jobs[MAXJOBS]; /* The job list */
 
 /* Function prototypes */
 
-/* Here are the functions that you will implement */
-
 void eval(char *cmdline);
 int builtin_cmd(char **argv);
 void do_bgfg(char **argv);
@@ -65,7 +63,6 @@ void sigchld_handler(int sig);
 void sigtstp_handler(int sig);
 void sigint_handler(int sig);
 
-/* Here are helper routines that we've provided for you */
 
 int parseline(const char *cmdline, char **argv); 
 void sigquit_handler(int sig);
@@ -120,8 +117,6 @@ int main(int argc, char **argv)
     }
 
     /* Install the signal handlers */
-
-    /* These are the ones you will need to implement */
     Signal(SIGINT,  sigint_handler);   /* ctrl-c */
     Signal(SIGTSTP, sigtstp_handler);  /* ctrl-z */
     Signal(SIGCHLD, sigchld_handler);  /* Terminated or stopped child */
