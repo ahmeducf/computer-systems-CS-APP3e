@@ -1,0 +1,4 @@
+Processes A and B are concurrent with respect to each other, as are B and C,
+because their respective executions overlap—that is, one process starts before the
+other finishes. Processes A and C are not concurrent because their executions do
+not overlap; A finishes before C begins.

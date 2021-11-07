@@ -1,0 +1,7 @@
+This program prints the string 213, which is the shorthand name of the CS:APP
+course at Carnegie Mellon. The parent starts by printing ‘2’, then forks the child,
+which spins in an infinite loop. The parent then sends a signal to the child and
+waits for it to terminate. The child catches the signal (interrupting the infinite
+loop), decrements the counter (from an initial value of 2), prints ‘1’, and then
+terminates. After the parent reaps the child, it increments the counter (from an
+initial value of 2), prints ‘3’, and terminates.

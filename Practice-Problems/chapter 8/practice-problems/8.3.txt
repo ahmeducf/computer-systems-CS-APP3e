@@ -1,0 +1,4 @@
+We know that the sequences 936036, 903636, and 093636 are possible because
+they correspond to topological sorts of the process graph (Figure 8.48). However,
+sequences such as 036936 and 360369 do not correspond to any topological sort
+and thus are not feasible.

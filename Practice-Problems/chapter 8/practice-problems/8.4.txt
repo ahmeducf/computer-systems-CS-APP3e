@@ -1,0 +1,7 @@
+A. We can determine the number of lines of output by simply counting the
+number of printf vertices in the process graph. In this case,
+there are seven such vertices, and thus the program will print seven lines of
+output.
+
+B. Any output sequence corresponding to a topological sort of the graph is
+possible. For example: Start, 0, 1, Child, Stop, 2, Stop is possible.
