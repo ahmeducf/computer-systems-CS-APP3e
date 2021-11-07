@@ -1,0 +1,9 @@
+The descriptors fd1 and fd2 each have their own open file table entry, so each
+descriptor has its own file position for foobar.txt. Thus, the read from fd2 reads
+the first byte of foobar.txt, and the output is
+
+c = f
+
+and not
+
+c = o

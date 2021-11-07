@@ -1,0 +1,7 @@
+Recall that the child inherits the parent’s descriptor table and that all processes
+shared the same open file table. Thus, the descriptor fd in both the parent and
+child points to the same open file table entry. When the child reads the first byte
+of the file, the file position increases by 1. Thus, the parent reads the second byte,
+and the output is
+
+c = o

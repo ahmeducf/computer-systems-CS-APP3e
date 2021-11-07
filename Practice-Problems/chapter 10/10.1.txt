@@ -1,0 +1,5 @@
+Unix processes begin life with open descriptors assigned to stdin (descriptor 0),
+stdout (descriptor 1), and stderr (descriptor 2). The open function always re-
+turns the lowest unopened descriptor, so the first call to open returns descriptor 3.
+The call to the close function frees up descriptor 3. The final call to open returns
+descriptor 3, and thus the output of the program is fd2 = 3.

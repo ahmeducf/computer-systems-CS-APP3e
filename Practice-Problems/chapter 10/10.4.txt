@@ -1,0 +1,2 @@
+To redirect standard input (descriptor 0) to descriptor 5, we would call dup2(5,0),
+or equivalently, dup2(5,STDIN_FILENO).
