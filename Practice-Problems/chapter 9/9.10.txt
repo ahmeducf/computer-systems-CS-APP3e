@@ -1,0 +1,6 @@
+The application makes numerous allocation and free requests to the first size class, followed by numer-
+ous allocation and free requests to the second size class, followed by numerous
+allocation and free requests to the third size class, and so on. For each size class,
+the allocator creates a lot of memory that is never reclaimed because the allocator
+doesn’t coalesce, and because the application never requests blocks from that size
+class again.
