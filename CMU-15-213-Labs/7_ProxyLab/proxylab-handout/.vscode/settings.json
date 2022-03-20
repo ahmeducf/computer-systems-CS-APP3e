@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "url_parser.h": "c",
+        "csapp.h": "c",
+        "array": "c",
+        "*.tcc": "c",
+        "chrono": "c",
+        "functional": "c",
+        "mutex": "c",
+        "tuple": "c",
+        "valarray": "c",
+        "urlparser.h": "c"
+    }
+}
