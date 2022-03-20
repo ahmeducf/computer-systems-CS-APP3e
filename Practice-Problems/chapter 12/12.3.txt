@@ -1,0 +1,4 @@
+If Ctrl+D is typed when the echo
+function is under execution, the server would consider it to be the EOF and may
+assume that the client has closed its end of connection and hence, may stop echoing
+back to the client.

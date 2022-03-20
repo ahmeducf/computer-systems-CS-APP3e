@@ -1,0 +1,3 @@
+pool.nready is an integer variable. We reinitialize the pool.nready variable with
+the value obtained from the call to select so as to store the total number of ready
+descriptors returned by select.

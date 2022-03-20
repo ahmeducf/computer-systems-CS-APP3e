@@ -1,0 +1,6 @@
+When the parent process on the concurrent server starts executing, the reference
+counter increments from 0 to 1 for the associated file table. When this parent
+process forks the child process, the reference counter is incremented from 1
+to 2. When the parent closes its copy of the descriptor, the reference count is
+decremented from 2 to 1. Similarly, when the child’s end of connection closes, the
+reference counter is decremented from 1 to 0.

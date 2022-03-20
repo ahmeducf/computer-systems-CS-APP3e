@@ -1,0 +1,11 @@
+A. p = 1, c = 1, n > 1: Yes, the mutex semaphore is necessary because the
+producer and consumer can concurrently access the buffer.
+
+B. p = 1, c = 1, n = 1: No, the mutex semaphore is not necessary in this case,
+because a nonempty buffer is equivalent to a full buffer. When the buffer
+contains an item, the producer is blocked. When the buffer is empty, the
+consumer is blocked. So at any point in time, only a single thread can access
+the buffer, and thus mutual exclusion is guaranteed without using the mutex.
+
+C. p > 1, c > 1, n = 1: No, the mutex semaphore is not necessary in this case
+either, by the same argument as the previous case.

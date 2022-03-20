@@ -1,0 +1,5 @@
+B. The program always deadlocks, since any feasible trajectory is eventually
+trapped in a deadlock state.
+
+C. To eliminate the deadlock potential, initialize the binary semaphore t to 1
+instead of 0.

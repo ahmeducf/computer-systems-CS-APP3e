@@ -1,0 +1,3 @@
+If we free the block immediately after the call to pthread_create in line 14, then
+we will introduce a new race, this time between the call to free in the main thread
+and the assignment statement in line 24 of the thread routine.

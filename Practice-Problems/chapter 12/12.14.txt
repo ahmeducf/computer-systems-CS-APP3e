@@ -1,0 +1,15 @@
+A. Another approach is to pass the integer i directly, rather than passing a
+pointer to i:
+
+    for (i = 0; i < N; i++)
+        Pthread_create(&tid[i], NULL, thread, (void *)i);
+
+In the thread routine, we cast the argument back to an int and assign it to
+myid:
+
+    int myid = (int) vargp;
+    
+B. The advantage is that it reduces overhead by eliminating the calls to malloc
+and free. A significant disadvantage is that it assumes that pointers are at
+least as large as ints. While this assumption is true for all modern systems,
+it might not be true for legacy or future systems.

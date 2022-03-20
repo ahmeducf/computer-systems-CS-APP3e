@@ -1,0 +1,4 @@
+Before the process that runs the CGI program is loaded, a Linux dup2 function
+is used to redirect standard output to the connected descriptor that is associated
+with the client. Thus, anything that the CGI program writes to standard output
+goes directly to the client.

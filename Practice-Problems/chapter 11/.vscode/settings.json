@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "csapp.h": "c",
+        "unistd.h": "c",
+        "socket.h": "c",
+        "stat.h": "c"
+    }
+}

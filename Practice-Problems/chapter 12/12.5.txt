@@ -1,0 +1,4 @@
+Yes, there are chances of memory leak if lines 31 or 32 are deleted.
+Since the threads are not explicitly reaped, each thread must be de-
+tached so that its memory resource will be reclaimed when it terminates. Similarly,
+it is important to free the memory block that was allocated by the main thread.

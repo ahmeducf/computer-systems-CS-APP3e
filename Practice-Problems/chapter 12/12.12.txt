@@ -1,0 +1,4 @@
+The rand_r function is implicitly reentrant function, because it passes the param-
+eter by reference; i.e., the parameter *nextp and not by value.
+We can pass variable to a pointer on the stafck of the caller, which may be overwritten, that will make
+the function Thread-unsafe.
