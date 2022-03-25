@@ -1,6 +1,6 @@
 #ifndef __SBUF_H__
 #define __SBUF_H__
-
+ 
 #include "csapp.h"
 
 #define NTHREADS 4

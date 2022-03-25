@@ -8,7 +8,7 @@
 #
 import socket
 import sys
-
+ 
 #create an INET, STREAMing socket
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', int(sys.argv[1])))

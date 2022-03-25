@@ -12,7 +12,7 @@ use Digest::MD5;
 my $maxport = 65536;
 my $minport = 1024;
 
-
+ 
 # hashname - compute an even port number from a hash of the argument
 sub hashname {
     my $name = shift;

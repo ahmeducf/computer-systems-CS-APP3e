@@ -9,7 +9,7 @@ Mellon University.  Tiny uses the GET method to serve static content
 content by running CGI programs out of ./cgi-bin. The default 
 page is home.html (rather than index.html) so that we can view
 the contents of the directory from a browser.
-
+ 
 Tiny is neither secure nor complete, but it gives students an
 idea of how a real Web server works. Use for instructional purposes only.
 

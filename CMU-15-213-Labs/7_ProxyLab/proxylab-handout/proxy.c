@@ -29,31 +29,27 @@ typedef struct cache_line {
 } cache_line_t;
 
 
-/* Helper functions prototypes*/
-void check_important_headers(char *header, int *important_headers_flag);
-URL_INFO *parse_url(URL_INFO *info, const char *url);
-
-void *thread(void *vargp);
-
 /* Functions prototypes */
 void serve_client(int connfd, cache_line_t *cache);
-int read_HTTP_request(int connfd, URL_INFO *url_infop, char *headers);
-int read_request_line(rio_t *rp, URL_INFO *url_infop, char *parsed_request);
-void read_request_headers(rio_t *rp, char *headers, URL_INFO *url_infop);
-int connect_server(URL_INFO url_info, char *parsed_request, int connfd, char *cache_buf);
-void clienterror(int fd, char *cause, char *errnum, 
-		 char *shortmsg, char *longmsg);
-
-void cache_init(cache_line_t **cachep);
-void semaphore_init();
-void write_cache(cache_line_t *cache, char *cache_buf, int object_size, size_t hash);
-int is_cached(cache_line_t *cache, size_t target);
 void service_from_cache(int connfd, cache_line_t *cache, size_t matched_line_idx);
 void service_from_server(int connfd, URL_INFO url_info, char *parsed_request, 
                             cache_line_t *cache, size_t HTTP_request_hash);
+int connect_server(URL_INFO url_info, char *parsed_request, int connfd, char *cache_buf);
+int read_HTTP_request(int connfd, URL_INFO *url_infop, char *headers);
+int read_request_line(rio_t *rp, URL_INFO *url_infop, char *parsed_request);
+void read_request_headers(rio_t *rp, char *headers, URL_INFO *url_infop);
+void check_important_headers(char *header, int *important_headers_flag);
+void clienterror(int fd, char *cause, char *errnum, 
+		 char *shortmsg, char *longmsg);
 
+void semaphore_init();
+void cache_init(cache_line_t **cachep);
+void write_cache(cache_line_t *cache, char *cache_buf, int object_size, size_t hash);
+int is_cached(cache_line_t *cache, size_t target);
 size_t hash(char *HTTP_request);
 size_t hash_func(char *str);
+
+void *thread(void *vargp);
 
 int main(int argc, char *argv[])
 {
@@ -518,6 +514,20 @@ int get_write_idx(cache_line_t *cache) {
     return lru_idx;
 }
 
+void write_cache(cache_line_t *cache, char *cache_buf, int object_size, size_t hash)
+{
+    printf("Writing to cache!\n");
+    int write_idx = get_write_idx(cache);
+
+    P(&mutex_writing_chace_line[write_idx]);
+    memcpy((cache + write_idx)->content, cache_buf, object_size);
+    (cache + write_idx)->length = object_size;
+    (cache + write_idx)->timestamp = cur_time;
+    (cache + write_idx)->hash = hash;
+    (cache + write_idx)->valid_bit = 1;
+    V(&mutex_writing_chace_line[write_idx]);
+}
+
 void service_from_cache(int connfd, cache_line_t *cache, size_t matched_line_idx)
 {
     P(&mutex_readcnt[matched_line_idx]);
@@ -551,20 +561,6 @@ void service_from_server(int connfd, URL_INFO url_info, char *parsed_request,
     if (object_size < MAX_OBJECT_SIZE && object_size > 0) {
         write_cache(cache, cache_buf, object_size, HTTP_request_hash);
     }
-}
-
-void write_cache(cache_line_t *cache, char *cache_buf, int object_size, size_t hash)
-{
-    printf("Writing to cache!\n");
-    int write_idx = get_write_idx(cache);
-
-    P(&mutex_writing_chace_line[write_idx]);
-    memcpy((cache + write_idx)->content, cache_buf, object_size);
-    (cache + write_idx)->length = object_size;
-    (cache + write_idx)->timestamp = cur_time;
-    (cache + write_idx)->hash = hash;
-    (cache + write_idx)->valid_bit = 1;
-    V(&mutex_writing_chace_line[write_idx]);
 }
 
 /* Create an empty, bounded, shared FIFO buffer with n slots */

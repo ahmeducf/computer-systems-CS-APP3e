@@ -4,10 +4,10 @@
 # rule). You instructor will type "make" on your specific Makefile to
 # build your proxy from sources.
 
-CC = gcc
+CC = gcc 
 CFLAGS = -g -Wall
 LDFLAGS = -lpthread
-
+ 
 all: proxy
 
 csapp.o: csapp.c csapp.h

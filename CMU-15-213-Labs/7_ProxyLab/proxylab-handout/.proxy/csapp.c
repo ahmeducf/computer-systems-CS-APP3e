@@ -1,6 +1,6 @@
 /* 
  * csapp.c - Functions for the CS:APP3e book
- *
+ * 
  * Updated 2/2016 droh:
  *   - Updated open_clientfd and open_listenfd to fail more gracefully
  *
